@@ -1,0 +1,16 @@
+<ion-header-bar align-title="center" class="bar-positive">
+  <div class="buttons"> <a class="button" href="#/tab/dash}}">Back</a> </div>
+  <h1 class="title" >Delete Book - {{book.name}}</h1>
+</ion-header-bar>
+<ion-content class="has-header">
+ <div class="list">
+<button class="button button-block button-assertive" ng-click="ConfirmDeleteBook(book.id)">
+  Confirm Delete Book
+</button>
+
+<button class="button button-block button-positive" ng-click="CancelDeleteBook()">
+  Cancel
+</button>
+ </div>
+ 
+</ion-content>

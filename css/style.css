@@ -1,0 +1,10 @@
+/* Empty. Add your own CSS if you like */
+.timestamp {
+font-size: 70%;
+padding-left: 15px;
+color: rgba(255, 255, 255, 0.690196);
+float: left;
+position: absolute;
+left: 0;
+top: 32px;
+}

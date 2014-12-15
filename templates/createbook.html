@@ -1,0 +1,28 @@
+<ion-header-bar align-title="center" class="bar-positive">
+  <div class="buttons"> <a class="button" href="#/tab/dashboard">Back</a> </div>
+  <h1 class="title" >Create Book</h1>
+</ion-header-bar>
+<ion-content class="has-header">
+  <div class="list">
+<label class="item item-input">
+<span class="input-label">Name of Book</span>
+<input type="text" ng-model="namesel" placeholder="{{nameplaceholder}}">
+</label>
+<label class="item item-input">
+<span class="input-label">Date</span>
+<input type="date" ng-model="datesel">
+</label>
+
+<label class="item item-input" ng-repeat="horse in horses">
+<span class="input-label">Name of Horse {{horse.id+1}}</span>
+<input type="text" ng-model="horse.name" placeholder="{{horse.placeholder}}">
+</label>
+
+<button class="button button-block button-light" ng-click="AddHorse()">
+  Add Horse
+</button>
+<button class="button button-block button-positive" ng-click="CreateBookSubmit(namesel,datesel,horses)">
+  Create Book
+</button>
+ </div>
+</ion-content>
