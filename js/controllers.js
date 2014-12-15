@@ -2,7 +2,12 @@
 angular.module('starter.controllers', ['starter.services'])
 
 .controller('DashCtrl', function($scope,Books) {
+//    $scope.onload = function (){
+    $scope.$apply();
 	$scope.books = Books.viewallbooks();
+	console.log(Books.viewallbooks());
+    
+//    }
 })
 
 

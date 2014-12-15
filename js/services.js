@@ -62,6 +62,7 @@ angular.module('starter.services', [])
                 console.log("Database Insertion");
                 db.transaction(function (tx) {
                     tx.executeSql('INSERT INTO BOOKS (id,name,date) VALUES ("' + newbookid + '","' + bookname + '","' + date + '")');
+//                    console.log(tx.executeSql('SELECT last_insert_rowid()'));
                     for (var i = 0; i < newhorses.length; i++) {
                         tx.executeSql('INSERT INTO HORSES (id, name,book) VALUES ("' + newhorses[i].id + '","' + newhorses[i].name + '","' + newbookid + '")');
                     }
@@ -85,7 +86,25 @@ angular.module('starter.services', [])
 
         },
         viewallbooks: function () {
-            return books;
+            
+//            db.transaction(function (tx) {
+//                tx.executeSql('SELECT * FROM BOOKS', [], function (tx, results) {
+////                    console.log(results);
+//                    console.log(db.fetch(results));
+//                    for(var i=0;i<results.rows.length;i++){
+////                        console.log(results);
+////                        console.log(results.rows.item(i));
+//                        books[i]=results.rows.item(i);
+//                    }
+//                   
+//                });
+            
+                return books;
+//            console.log(books);
+//             db.query('SELECT * FROM BOOKS').then(function(result){
+//            return db.fetchAll(result);
+//        });
+            
         },
         insertonlyhorse: function (book, horsename, horseid) {
             books[book].horses.push({
