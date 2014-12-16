@@ -3,17 +3,19 @@
   <div class="buttons">
     <a class="button" href="#/tab/dashboard">Back</a>
   </div>
-  <h1 class="title" >Book - {{book.name}}</h1>
+  <h1 class="title" >Book - {{horse[0].bname}}</h1>
   <div class="buttons">
-    <a class="button" href="#/tab/viewbets/{{book.id}}">View Bets</a>
+    <a class="button" href="#/tab/viewbets/{{horse[0].bid}}">View Bets</a>
   </div>
 </ion-header-bar>
 <ion-content class="has-header">
     <ion-list>
-   	 <ion-item ng-repeat="horse in book.horses" type="item-text-wrap"  href="#/tab/createbet/{{book.id}}/{{horse.id}}">
-        {{horse.name}}<span class="badge badge-{{horse.total|totalcolor}}">{{horse.total}}</span>
+   	 <ion-item ng-repeat="hor in horse" type="item-text-wrap"  href="#/tab/createbet/{{hor.bid}}/{{hor.id}}">
+        {{hor.name}}<span class="badge badge-{{horse.total|totalcolor}}">{{hor.total}}</span>
        
       </ion-item>
     </ion-list>
+    <ion-infinite-scroll icon="ion-loading-c" ng-if="getcheck()" on-infinite="loadMore()">
+    </ion-infinite-scroll>
   </ion-content>
 

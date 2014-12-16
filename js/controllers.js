@@ -3,27 +3,136 @@ angular.module('starter.controllers', ['starter.services'])
 .controller('DashCtrl', function ($scope, Books) {
     //    $scope.onload = function (){
     $scope.books = [];
+    $scope.check = true;
     var callback = function (tx, results) {
         for (var i = 0; i < results.rows.length; i++) {
             $scope.books.push(results.rows.item(i));
         }
         $scope.$apply();
+        $scope.$broadcast('scroll.infiniteScrollComplete');
     };
-    Books.viewallbooks(callback);
+    Books.viewallbooks(0, callback);
+
+    //    start reload function
+    
+    $scope.getcheck =function (){
+        return $scope.check;
+    }
+
+    var lastlength = 0;
+    $scope.loadMore = function () {
+        var totallength = $scope.books.length;
+        if (lastlength != totallength) {
+            lastlength = totallength;
+            console.log(totallength);
+            Books.viewallbooks(totallength, callback);
+            //            MyServices.notificationbrandid($stateParams.id, $scope.ucity, lat, long, totallength).success(pushnotificationbrand);
+
+        } else {
+            
+            $scope.check = false;
+            
+        }
+
+
+    };
+
+    //    end  reload function
+
 })
 
 
 .controller('ViewBook', function ($scope, $stateParams, Books) {
-    $scope.book = Books.viewbook($stateParams.BookId);
+
+    // Get all horses 
+    $scope.horse = [];
+    $scope.check = true;
+    console.log($stateParams.BookId);
+    var callback1 = function (tx, results) {
+        console.log(results);
+        for (var i = 0; i < results.rows.length; i++) {
+            console.log(results.rows.item(i));
+            $scope.horse.push(results.rows.item(i));
+        }
+        console.log($scope.horse);
+                $scope.$apply();
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+    };
+    Books.viewbook(0, $stateParams.BookId, callback1);
+    
+    //    start reload function
+    
+    $scope.getcheck =function (){
+        return $scope.check;
+    }
+
+    var lastlength = 0;
+    $scope.loadMore = function () {
+        var totallength = $scope.horse.length;
+        if (lastlength != totallength) {
+            lastlength = totallength;
+            console.log(totallength);
+            Books.viewbook(totallength, $stateParams.BookId, callback1);
+
+        }else{
+            $scope.check = false;
+        }
+
+    };
+
+    //    end  reload function
+    
 })
 
 .controller('ViewBets', function ($scope, $stateParams, Books) {
-    $scope.book = Books.viewbook($stateParams.BookId);
+//    $scope.book = Books.viewbook($stateParams.BookId);
+    $scope.bets = [];
+    $scope.check = true;
+    
+    var callback = function (tx, results) {
+        console.log(results);
+        for (var i = 0; i < results.rows.length; i++) {
+            console.log(results.rows.item(i));
+            $scope.bets.push(results.rows.item(i));
+        }
+        console.log($scope.bets);
+                $scope.$apply();
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+    };
+    Books.viewbets(0,$stateParams.BookId,callback);
+    
     $scope.DeleteBet = function (book, betid) {
 
         Books.deletebet(book, betid);
+        Books.viewbets(0,$stateParams.BookId,callback);
         //$scope.book = Books.viewbook($stateParams.BookId);
     }
+    
+    
+    
+    //    start reload function
+    
+    $scope.getcheck =function (){
+        return $scope.check;
+    }
+
+    var lastlength = 0;
+    $scope.loadMore = function () {
+        var totallength = $scope.bets.length;
+        if (lastlength != totallength) {
+            lastlength = totallength;
+            console.log(totallength);
+            Books.viewbets(totallength, $stateParams.BookId, callback);
+
+        }else{
+            $scope.check = false;
+        }
+
+    };
+
+    //    end  reload function
+    
+    
 })
 
 .controller('CreateBook', function ($location, $scope, $stateParams, Books) {
@@ -63,7 +172,17 @@ angular.module('starter.controllers', ['starter.services'])
     };
 })
     .controller('DeleteBook', function ($location, $scope, $stateParams, Books) {
-        $scope.book = Books.viewbook($stateParams.BookId);
+//        $scope.book = Books.viewbook($stateParams.BookId);
+        $scope.book =[];    
+    
+        var callback = function (tx, results) {
+            console.log("my booook");
+            console.log(results.rows.item(0));
+            $scope.book=results.rows.item(0);
+            $scope.$apply();
+        };
+        Books.getonebook($stateParams.BookId,callback)
+    
         $scope.ConfirmDeleteBook = function (book) {
 
             Books.deletebook(book);
@@ -77,7 +196,18 @@ angular.module('starter.controllers', ['starter.services'])
 
     })
     .controller('CreateBet', function ($location, $scope, $stateParams, Books) {
-        $scope.book = Books.viewbook($stateParams.BookId);
+    
+        $scope.horse = [];
+        var callback = function (tx, results) {
+            console.log(results);
+            for (var i = 0; i < results.rows.length; i++) {
+                console.log(results.rows.item(i));
+                $scope.horse.push(results.rows.item(i));
+            }
+            console.log($scope.horse);
+                    $scope.$apply();
+        };
+        Books.viewbook(0,$stateParams.BookId,callback);
         $scope.favoritesel = $stateParams.HorseId;
         $scope.backlaysel = -1;
         $scope.oddssel = 1.0;
