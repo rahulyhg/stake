@@ -144,6 +144,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 .filter('totalcolor', function () {
     return function (input) {
+       
+        input=parseInt(input);
         if (input > 0)
             return 'balanced';
         else if (input < 0)

@@ -174,7 +174,7 @@ angular.module('starter.services', [])
             if (!id){
                 db.transaction(function (tx) {
                     
-                    tx.executeSql('SELECT * FROM HORSES WHERE book="1"', [], function (tx, results) {
+                    tx.executeSql('SELECT * FROM HORSES WHERE book="'+book+'"', [], function (tx, results) {
                         console.log(results.rows.item(0).total);
                         console.log(results.rows.length);
 //                        bid = results.rows.item(0).id;

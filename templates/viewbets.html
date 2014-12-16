@@ -6,7 +6,7 @@
 <ion-content class="has-header">
     <ion-list>
         <ion-item ng-repeat="bet in bets | orderBy:'timestamp':true" class="item item-{{bet.backlay|totalcolor}} item-button-right" type="item-text-wrap">{{bet.backlay|BackLay}}<span ng-bind="' on '+book.horses[bet.favorite].name+' @ '+bet.odds+' for $'+bet.stake"></span>  <span class="timestamp">{{bet.timestamp | date:'EEEE, MMMM d, y  h:mm:ss a'}}</span> 
-            <a class="button button-assertive" ng-click="DeleteBet(bets[0].bid,bets[0].id)"> <i class="icon ion-trash-a"></i> 
+            <a class="button button-assertive"  ng-click="DeleteBet(bets[0].bid,bets[0].id)"> <i class="icon ion-trash-a"></i> 
             </a>
         </ion-item>
     </ion-list>
