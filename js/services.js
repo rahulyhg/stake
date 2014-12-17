@@ -72,6 +72,16 @@ angular.module('starter.services', [])
             //            });
             //            console.log(newhorses);
             //            console.log(newbookid);
+            
+            
+            if(!date){
+                
+            var currentdate = new Date();
+            date = currentdate.getTime('yyyy-mm-dd');
+            }else{
+                date=date;
+            }
+            
             if (!id) {
                 console.log("Database Insertion");
                 db.transaction(function (tx) {
