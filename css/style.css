@@ -1,10 +1,67 @@
 /* Empty. Add your own CSS if you like */
-.timestamp {
-font-size: 70%;
-padding-left: 15px;
-color: rgba(255, 255, 255, 0.690196);
-float: left;
-position: absolute;
-left: 0;
-top: 32px;
+
+@font-face {
+    font-family: 'PT Sans';
+    src: url('fonts/PT_Sans-Web-Regular.ttf');
+}
+@font-face {
+    font-family: 'PT Sans';
+    src: url('fonts/PT_Sans-Web-Bold.ttf');
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'Overlock';
+    src: url('fonts/Overlock-Regular.ttf');
+}
+@font-face {
+    font-family: 'Overlock';
+    src: url('fonts/Overlock-Bold.ttf');
+    font-weight: bold;
+}
+body,
+p,
+ul,
+li,
+input,
+textarea {
+    font-family: 'PT Sans', cursive;
+}
+.bar .title {
+    font-weight: bold;
+    font-size: 20px;
+}
+.bar .title,
+.input-label,
+.button,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Overlock', arial;
+}
+.bar.bar-positive {
+    border-color: #0d71ff;
+    background-color: #0d71ff;
+    color: #fff;
+}
+.button.button-positive.button-outline {
+    border-color: #0d71ff;
+    background: 0 0;
+    color: #0d71ff;
+}
+.button.button-positive {
+    border-color: #0d71ff;
+    background-color: #0d71ff;
+    color: #fff;
+}
+.badge.badge-positive,
+.tabs .tab-item .badge.badge-positive {
+    background-color: #0d71ff;
+    color: #fff;
+}
+p.light,
+a.light {
+    color: #fff;
 }
