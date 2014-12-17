@@ -83,17 +83,18 @@ angular.module('starter.services', [])
             }
             
             if (!id) {
-                console.log("Database Insertion");
+//                console.log("Database Insertion");
                 db.transaction(function (tx) {
                     tx.executeSql('INSERT INTO BOOKS (name,date) VALUES ("' + bookname + '","' + date + '")');
 
                     tx.executeSql('SELECT last_insert_rowid() as id', [], function (tx, results) {
-                        console.log(results.rows.item(0));
+//                        console.log(results.rows.item(0));
                         bid = results.rows.item(0).id;
-                        console.log(bid);
+//                        console.log(bid);
                         for (var i = 0; i < newhorses.length; i++) {
                             tx.executeSql('INSERT INTO HORSES (name,book,total) VALUES ("' + newhorses[i].name + '","' + bid + '",0)');
                         }
+                        return 1;
                     });
 
                     //                    console.log(tx.executeSql('SELECT last_insert_rowid()'));
@@ -185,8 +186,8 @@ angular.module('starter.services', [])
                 db.transaction(function (tx) {
                     
                     tx.executeSql('SELECT * FROM HORSES WHERE book="'+book+'"', [], function (tx, results) {
-                        console.log(results.rows.item(0).total);
-                        console.log(results.rows.length);
+//                        console.log(results.rows.item(0).total);
+//                        console.log(results.rows.length);
 //                        bid = results.rows.item(0).id;
                         for (var i = 0; i < results.rows.length; i++) {
                             if (favorite == results.rows.item(i).id) {
