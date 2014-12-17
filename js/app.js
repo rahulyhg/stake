@@ -7,10 +7,10 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
-.run(function($ionicPlatform, Books, $location) {
+.run(function ($ionicPlatform, Books, $location) {
     //console.log(Books.viewallbooks());
 
-    $ionicPlatform.ready(function() {
+    $ionicPlatform.ready(function () {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
         if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -64,8 +64,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
-
+.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+    $ionicConfigProvider.views.maxCache(0);
     // Ionic uses AngularUI Router which uses the concept of states
     // Learn more here: https://github.com/angular-ui/ui-router
     // Set up the various states which the app can be in.
@@ -74,7 +74,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
     // setup an abstract state for the tabs directive
     .state('tab', {
-        cache: false,
         url: "/tab",
         abstract: true,
         templateUrl: "templates/tabs.html"
@@ -83,7 +82,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     // Each tab has its own nav history stack:
 
     .state('tab.dash', {
-        cache: false,
         url: '/dash',
         views: {
             'tab-dash': {
@@ -94,7 +92,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     })
 
     .state('tab.viewbook', {
-        cache: false,
         url: '/viewbook/:BookId',
         views: {
             'tab-dash': {
@@ -104,7 +101,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
     })
         .state('tab.createbook', {
-            cache: false,
             url: '/createbook',
             views: {
                 'tab-dash': {
@@ -114,7 +110,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             }
         })
         .state('tab.viewbets', {
-            cache: false,
             url: '/viewbets/:BookId',
             views: {
                 'tab-dash': {
@@ -124,7 +119,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             }
         })
         .state('tab.createbet', {
-            cache: false,
             url: '/createbet/:BookId/:HorseId',
             views: {
                 'tab-dash': {
@@ -134,7 +128,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             }
         })
         .state('tab.deletebook', {
-            cache: false,
             url: '/deletebook/:BookId',
             views: {
                 'tab-dash': {
@@ -149,8 +142,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 })
 
-.filter('totalcolor', function() {
-    return function(input) {
+.filter('totalcolor', function () {
+    return function (input) {
 
         input = parseInt(input);
         if (input > 0)
@@ -161,8 +154,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             return 'positive';
     };
 })
-    .filter('BackLay', function() {
-        return function(input) {
+    .filter('BackLay', function () {
+        return function (input) {
             if (input == 1)
                 return 'Lay';
             else
