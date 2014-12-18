@@ -12,7 +12,7 @@
                {{bet.backlay|BackLay}} <span class="light" ng-bind="' on '+book.horses[bet.favorite].name+' @ '+bet.odds+' for $'+bet.stake"></span>
           </h2>
            <p class="light">{{bet.timestamp | date:'EEEE, MMMM d, y  h:mm:ss a'}}</p> 
-            <a ng-click="DeleteBet(bets[0].bid,bets[0].id)"> <i class="icon ion-trash-a light"></i> 
+            <a ng-click="DeleteBet(bet)"> <i class="icon ion-trash-a light"></i> 
             </a>
         </ion-item>
     </ion-list>

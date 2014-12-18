@@ -92,7 +92,7 @@ angular.module('starter.controllers', ['starter.services'])
 
 })
 
-.controller('ViewBets', function ($scope, $stateParams, Books) {
+.controller('ViewBets', function ($scope, $stateParams, Books, $location) {
     //    $scope.book = Books.viewbook($stateParams.BookId);
     $scope.bets = [];
     $scope.check = true;
@@ -109,10 +109,12 @@ angular.module('starter.controllers', ['starter.services'])
     };
     Books.viewbets(0, $stateParams.BookId, callback);
 
-    $scope.DeleteBet = function (book, betid) {
-
-        Books.deletebet(book, betid);
-        Books.viewbets(0, $stateParams.BookId, callback);
+    $scope.DeleteBet = function (bet) {
+        console.log("bet delete pressed");
+        $scope.bookid=bet.bid;
+        Books.deletebet(bet.bid,bet.id,bet.backlay,bet.favorite,bet.odds,bet.stake);
+        $location.url("/tab/viewbook/" + $scope.bookid);
+//        Books.viewbets(0, $stateParams.BookId, callback);
         //$scope.book = Books.viewbook($stateParams.BookId);
     }
 

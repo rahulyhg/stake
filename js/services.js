@@ -222,34 +222,51 @@ angular.module('starter.services', [])
             }
             return "Bet Added";
         },
-        deletebet: function (book, betid) {
-            //            var bets = books[book].bets;
-            //            var horses = books[book].horses;
-            //            var favorite = 0;
-            //            var backlay = 0;
-            //            var odds = 0;
-            //            var stake = 0;
-            //            for (var i = 0; i < bets.length; i++) {
-            //                if (betid == bets[i].id) {
-            //                    favorite = bets[i].favorite;
-            //                    backlay = bets[i].backlay;
-            //                    odds = bets[i].odds;
-            //                    stake = bets[i].stake;
-            //                    books[book].bets.splice(i, 1);
-            //                }
-            //            }
-            //            var favstake = odds * stake * backlay;
-            //            var otherstake = stake * backlay * -1;
-            //            for (var i = 0; i < horses.length; i++) {
-            //                if (favorite == horses[i].id) {
-            //                    horses[i].total -= favstake;
-            //                } else {
-            //                    horses[i].total -= otherstake;
-            //                }
-            //            }
-
+        deletebet: function (bid,id,backlay,favorite,odds,stake) {
+//                        for (var i = 0; i < bets.length; i++) {
+//                            if (betid == bets[i].id) {
+//                                favorite = bets[i].favorite;
+//                                backlay = bets[i].backlay;
+//                                odds = bets[i].odds;
+//                                stake = bets[i].stake;
+//                                books[book].bets.splice(i, 1);
+//                            }
+//                        }
+                        var favstake = odds * stake * backlay;
+                        var otherstake = stake * backlay * -1;
+//                        for (var i = 0; i < horses.length; i++) {
+//                            if (favorite == horses[i].id) {
+//                                horses[i].total -= favstake;
+//                            } else {
+//                                horses[i].total -= otherstake;
+//                            }
+//                        }
+            console.log("ABCDEFGHI");
+            console.log(favstake);
+            console.log(otherstake);
+            favorite=parseInt(favorite);
             db.transaction(function (tx) {
-                tx.executeSql('DELETE FROM BETS WHERE id="' + betid + '" AND book="' + book + '"');
+                
+                tx.executeSql('SELECT * FROM HORSES WHERE book="'+bid+'"', [], function (tx, results) {
+//                        console.log(results.rows.item(0).total);
+//                        console.log(results.rows.length);
+//                        bid = results.rows.item(0).id;
+                        for (var i = 0; i < results.rows.length; i++) {
+                            
+                            if (favorite == results.rows.item(i).id) {
+//                                horses[i].total += favstake;
+                                console.log(('UPDATE HORSES SET total=total+'+((-1)*favstake)+' WHERE id="'+results.rows.item(i).id+'"'));
+                                tx.executeSql('UPDATE HORSES SET total=total+'+((-1)*favstake)+' WHERE id="'+results.rows.item(i).id+'"');
+                            } else {
+                                console.log('UPDATE HORSES SET total=total+'+((-1)*otherstake)+' WHERE id="'+results.rows.item(i).id+'"');
+//                                horses[i].total += otherstake;
+                                tx.executeSql('UPDATE HORSES SET total=total+'+((-1)*otherstake)+' WHERE id="'+results.rows.item(i).id+'"');
+                            }
+                        }
+
+                    });
+                
+                tx.executeSql('DELETE FROM BETS WHERE id="' + id + '" AND book="' + bid  + '"');
             });
 
         }
