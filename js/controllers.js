@@ -96,6 +96,8 @@ angular.module('starter.controllers', ['starter.services'])
     //    $scope.book = Books.viewbook($stateParams.BookId);
     $scope.bets = [];
     $scope.check = true;
+    $scope.bookid=$stateParams.BookId;
+    $scope.bookname=$stateParams.BookName;
 
     var callback = function (tx, results) {
         console.log(results);
@@ -168,6 +170,7 @@ angular.module('starter.controllers', ['starter.services'])
             name: ""
         });
     };
+    
     $scope.CreateBookSubmit = function (book, date, horses) {
         if (book == "" || book == " ") {
             $scope.nameplaceholder = "Please enter book name";
@@ -178,6 +181,7 @@ angular.module('starter.controllers', ['starter.services'])
             $scope.horses[0].placeholder = "Give a name to Horse 2";
         } else {
             console.log("createbook ...................................");
+            date=Date.parse(date);
             Books.createbook(book, date, horses, false);
             //            $scope.$apply();
             //$state.reload();

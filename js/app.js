@@ -110,7 +110,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             }
         })
         .state('tab.viewbets', {
-            url: '/viewbets/:BookId',
+            url: '/viewbets/:BookId/:BookName',
             views: {
                 'tab-dash': {
                     templateUrl: 'templates/viewbets.html',

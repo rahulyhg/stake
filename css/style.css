@@ -57,3 +57,9 @@ p.light,
 a.light {
     color: #fff;
 }
+
+
+.nobets {
+    padding:10%;
+    text-align: center;
+}

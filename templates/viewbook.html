@@ -1,21 +1,23 @@
-
 <ion-header-bar align-title="center" class="bar-positive">
-  <div class="buttons">
-    <a class="button button-icon icon ion-ios7-arrow-thin-left" href="#/tab/dashboard"></a>
-  </div>
-  <h1 class="title" >Book - {{horse[0].bname}}</h1>
-  <div class="buttons">
-    <a class="button button-icon icon ion-eye" href="#/tab/viewbets/{{horse[0].bid}}"></a>
-  </div>
+    <div class="buttons">
+        <a class="button button-icon icon ion-ios7-arrow-thin-left" href="#/tab/dashboard"></a>
+    </div>
+    <h1 class="title">Book - {{horse[0].bname}}</h1>
+    <div class="buttons">
+        <a class="button button-icon icon ion-eye" href="#/tab/viewbets/{{horse[0].bid}}/{{horse[0].bname}}"></a>
+    </div>
 </ion-header-bar>
 <ion-content class="has-header">
     <ion-list>
-   	 <ion-item ng-repeat="hor in horse" type="item-text-wrap"  href="#/tab/createbet/{{hor.bid}}/{{hor.id}}">
-        {{hor.name}}<span class="badge badge-{{hor.total|totalcolor}}">{{hor.total}}</span>
-       
-      </ion-item>
+        <ion-item ng-repeat="hor in horse" type="item-text-wrap" href="#/tab/createbet/{{hor.bid}}/{{hor.id}}">
+            {{hor.name}}<span class="badge badge-{{hor.total|totalcolor}}">{{hor.total}}</span>
+
+        </ion-item>
     </ion-list>
+
     <ion-infinite-scroll icon="ion-loading-c" ng-if="getcheck()" on-infinite="loadMore()">
     </ion-infinite-scroll>
-  </ion-content>
+    
+
+</ion-content>
 
