@@ -64,29 +64,29 @@ angular.module('starter.controllers', ['starter.services'])
         }
         console.log($scope.horse);
         $scope.$apply();
-        $scope.$broadcast('scroll.infiniteScrollComplete');
+//        $scope.$broadcast('scroll.infiniteScrollComplete');
     };
-    Books.viewbook(0, $stateParams.BookId, callback1);
+    Books.viewbook($stateParams.BookId, callback1);
 
     //    start reload function
 
-    $scope.getcheck = function () {
-        return $scope.check;
-    }
-
-    var lastlength = 0;
-    $scope.loadMore = function () {
-        var totallength = $scope.horse.length;
-        if (lastlength != totallength) {
-            lastlength = totallength;
-            console.log(totallength);
-            Books.viewbook(totallength, $stateParams.BookId, callback1);
-
-        } else {
-            $scope.check = false;
-        }
-
-    };
+//    $scope.getcheck = function () {
+//        return $scope.check;
+//    }
+//
+//    var lastlength = 0;
+//    $scope.loadMore = function () {
+//        var totallength = $scope.horse.length;
+//        if (lastlength != totallength) {
+//            lastlength = totallength;
+//            console.log(totallength);
+//            Books.viewbook(totallength, $stateParams.BookId, callback1);
+//
+//        } else {
+//            $scope.check = false;
+//        }
+//
+//    };
 
     //    end  reload function
 
@@ -147,7 +147,7 @@ angular.module('starter.controllers', ['starter.services'])
 
 })
 
-.controller('CreateBook', function ($location, $scope, $stateParams, Books, $state) {
+.controller('CreateBook', function ($location, $scope, $stateParams, Books, $state, $ionicScrollDelegate) {
     //    $urlRouter.sync();
     $scope.namesel = "";
     $scope.horses = [{
@@ -169,6 +169,7 @@ angular.module('starter.controllers', ['starter.services'])
             id: newhorseid,
             name: ""
         });
+        $ionicScrollDelegate.scrollBottom(true);
     };
     
     $scope.CreateBookSubmit = function (book, date, horses) {

@@ -146,10 +146,10 @@ angular.module('starter.services', [])
                 total: 0
             });
         },
-        viewbook: function (start, BookId, callback1) {
+        viewbook: function (BookId, callback1) {
 
             db.transaction(function (tx) {
-                tx.executeSql('SELECT BOOKS.id as bid,BOOKS.name as bname,BOOKS.date,HORSES.id,HORSES.name,HORSES.total FROM BOOKS LEFT OUTER JOIN HORSES ON HORSES.book = BOOKS.id  WHERE HORSES.book = "' + BookId + '" LIMIT ' + start + ',5', [], callback1);
+                tx.executeSql('SELECT BOOKS.id as bid,BOOKS.name as bname,BOOKS.date,HORSES.id,HORSES.name,HORSES.total FROM BOOKS LEFT OUTER JOIN HORSES ON HORSES.book = BOOKS.id  WHERE HORSES.book = "' + BookId + '"', [], callback1);
 
             });
 
