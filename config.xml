@@ -6,8 +6,8 @@
     <description></description>
 
     <author href="http://www.wohlig.com" email="info@wohlig.com">Wohlig Technologies</author>
-    
-    <content src="index.html"/>
+
+    <content src="index.html" />
 
     <gap:platform name="ios" />
     <gap:platform name="android" />
@@ -36,6 +36,8 @@
     <preference name="StatusBarOverlaysWebView" value="true" />
     <preference name="StatusBarBackgroundColor" value="#ffffff" />
     <preference name="StatusBarStyle" value="lightcontent" />
+
+    <icon src="res/icons/android/icon.png" />
 
     <!-- iOS 8.0+ -->
     <!-- iPhone 6 Plus  -->
@@ -72,7 +74,6 @@
     <icon src="res/icons/android/icon-xxxhdpi.png" gap:platform="android" density="xxxhdpi" />
 
     <!--Default icon-->
-    <icon src="res/icons/android/icon.png" />
 
     <gap:splash src="res/screens/android/hdpi.png" gap:platform="android" density="port-hdpi" />
     <gap:splash src="res/screens/android/ldpi.png" gap:platform="android" density="port-ldpi" />
