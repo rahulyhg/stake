@@ -6,6 +6,8 @@
     <description></description>
 
     <author href="http://www.wohlig.com" email="info@wohlig.com">Wohlig Technologies</author>
+    
+    <content src="index.html"/>
 
     <gap:platform name="ios" />
     <gap:platform name="android" />

@@ -1,65 +1,31 @@
 /* Empty. Add your own CSS if you like */
-
 @font-face {
-    font-family: 'PT Sans';
-    src: url('fonts/PT_Sans-Web-Regular.ttf');
-}
-@font-face {
-    font-family: 'PT Sans';
-    src: url('fonts/PT_Sans-Web-Bold.ttf');
-    font-weight: bold;
+    font-family: 'Overlock';
+    src: url('../fonts/Overlock-Regular.ttf');
 }
 @font-face {
     font-family: 'Overlock';
-    src: url('fonts/Overlock-Regular.ttf');
-}
-@font-face {
-    font-family: 'Overlock';
-    src: url('fonts/Overlock-Bold.ttf');
+    src: url('../fonts/Overlock-Bold.ttf');
     font-weight: bold;
-}
-body,
-p,
-ul,
-li,
-input,
-textarea {
-    font-family: 'PT Sans', cursive;
 }
 .bar .title {
     font-weight: bold;
     font-size: 20px;
 }
-.bar .title, h1, h2, h3, h4, h5, h6 {
+.bar .title,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Overlock', arial;
-}
-.bar.bar-positive {
-    border-color: #0d71ff;
-    background-color: #0d71ff;
-    color: #fff;
-}
-.button.button-positive.button-outline {
-    border-color: #0d71ff;
-    background: 0 0;
-    color: #0d71ff;
-}
-.button.button-positive {
-    border-color: #0d71ff;
-    background-color: #0d71ff;
-    color: #fff;
-}
-.badge.badge-positive,
-.tabs .tab-item .badge.badge-positive {
-    background-color: #0d71ff;
-    color: #fff;
 }
 p.light,
 a.light {
     color: #fff;
 }
-
-
 .nobets {
-    padding:10%;
+    padding: 10%;
     text-align: center;
 }
