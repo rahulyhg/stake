@@ -3,7 +3,7 @@
 
     <name>Stake</name>
 
-    <description></description>
+    <description>Bet Calc</description>
 
     <author href="http://www.wohlig.com" email="info@wohlig.com">Wohlig Technologies</author>
 
@@ -12,7 +12,7 @@
     <gap:platform name="ios" />
     <gap:platform name="android" />
 
-    <preference name="phonegap-version" value="3.6.3" />
+    <preference name="phonegap-version" />
     <preference name="orientation" value="portrait" />
     <preference name="fullscreen" value="false" />
     <preference name="target-device" value="universal" />
@@ -97,22 +97,13 @@
     <gap:plugin name="com.ionic.keyboard" />
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="com.phonegap.plugin.statusbar" />
-    <gap:plugin name="nl.x-services.plugins.socialsharing" />
-    <gap:plugin name="org.apache.cordova.inappbrowser" version="0.5.2" />
+    <gap:plugin name="pushwoosh-cordova-plugin" source="npm" />
 
     <feature name="StatusBar">
         <param name="ios-package" value="CDVStatusBar" onload="true" />
     </feature>
     <feature name="Keyboard">
         <param name="ios-package" value="IonicKeyboard" onload="true" />
-    </feature>
-    <!-- for iOS -->
-    <feature name="SocialSharing">
-        <param name="ios-package" value="SocialSharing" />
-    </feature>
-    <!-- for Android (you will find one in res/xml) -->
-    <feature name="SocialSharing">
-        <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
     </feature>
 
 </widget>
