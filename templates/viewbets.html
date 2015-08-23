@@ -6,7 +6,7 @@
 </ion-header-bar>
 <ion-content class="has-header">
     <ion-list class="">
-        <ion-item ng-repeat="bet in bets | orderBy:'timestamp':true" class="item item-{{bet.backlay|totalcolor}} item-icon-right" type="item-text-wrap">
+        <ion-item collection-repeat="bet in bets | orderBy:'timestamp':true" class="item item-{{bet.backlay|totalcolor}} item-icon-right" type="item-text-wrap">
 
             <h2 class="light">
                {{bet.backlay|BackLay}} <span class="light" ng-bind="' on '+book.horses[bet.favorite].name+' @ '+bet.odds+' for $'+bet.stake"></span>

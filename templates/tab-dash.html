@@ -9,7 +9,7 @@
     <ion-list>
         {{book}}
 
-        <ion-item ng-repeat="book in books" class="item item-icon-right item-text-wrap" href="#/tab/viewbook/{{book.id}}">
+        <ion-item collection-repeat="book in books" class="item item-icon-right item-text-wrap" href="#/tab/viewbook/{{book.id}}">
             <h2>{{book.name}}</h2>
             <p>{{book.date | date:'EEEE, MMMM d'}}</p>
             <a href="#/tab/deletebook/{{book.id}}"> <i class="icon ion-trash-a assertive"></i> 

@@ -9,6 +9,7 @@
         <label class="item item-input item-select">
             <span class="input-label">Team</span>
             <select ng-model="favoritesel">
+               {{horse}}
                 <option ng-repeat="hor in horse" ng-selected="{{favoritesel == hor.id}}" value="{{hor.id}}">{{hor.name}}</option>
             </select>
         </label>

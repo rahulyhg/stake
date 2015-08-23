@@ -1,6 +1,6 @@
 angular.module('starter.controllers', ['starter.services'])
 
-.controller('DashCtrl', function ($location, $state, $scope, Books, $urlRouter) {
+.controller('DashCtrl', function($location, $state, $scope, Books, $urlRouter) {
 
     //    $location.reload(true);
     //    $scope.onload = function (){
@@ -10,7 +10,7 @@ angular.module('starter.controllers', ['starter.services'])
     console.log("A BCD");
     $scope.books = [];
     $scope.check = true;
-    var callback = function (tx, results) {
+    var callback = function(tx, results) {
         console.log("view all book data");
         console.log(results.rows);
         for (var i = 0; i < results.rows.length; i++) {
@@ -23,12 +23,12 @@ angular.module('starter.controllers', ['starter.services'])
 
     //    start reload function
 
-    $scope.getcheck = function () {
+    $scope.getcheck = function() {
         return $scope.check;
     }
 
     var lastlength = 0;
-    $scope.loadMore = function () {
+    $scope.loadMore = function() {
         var totallength = $scope.books.length;
         if (lastlength != totallength) {
             lastlength = totallength;
@@ -50,13 +50,13 @@ angular.module('starter.controllers', ['starter.services'])
 })
 
 
-.controller('ViewBook', function ($scope, $stateParams, Books) {
+.controller('ViewBook', function($scope, $stateParams, Books) {
 
     // Get all horses 
     $scope.horse = [];
     $scope.check = true;
     console.log($stateParams.BookId);
-    var callback1 = function (tx, results) {
+    var callback1 = function(tx, results) {
         console.log(results);
         for (var i = 0; i < results.rows.length; i++) {
             console.log(results.rows.item(i));
@@ -64,42 +64,42 @@ angular.module('starter.controllers', ['starter.services'])
         }
         console.log($scope.horse);
         $scope.$apply();
-//        $scope.$broadcast('scroll.infiniteScrollComplete');
+        //        $scope.$broadcast('scroll.infiniteScrollComplete');
     };
     Books.viewbook($stateParams.BookId, callback1);
 
     //    start reload function
 
-//    $scope.getcheck = function () {
-//        return $scope.check;
-//    }
-//
-//    var lastlength = 0;
-//    $scope.loadMore = function () {
-//        var totallength = $scope.horse.length;
-//        if (lastlength != totallength) {
-//            lastlength = totallength;
-//            console.log(totallength);
-//            Books.viewbook(totallength, $stateParams.BookId, callback1);
-//
-//        } else {
-//            $scope.check = false;
-//        }
-//
-//    };
+    //    $scope.getcheck = function () {
+    //        return $scope.check;
+    //    }
+    //
+    //    var lastlength = 0;
+    //    $scope.loadMore = function () {
+    //        var totallength = $scope.horse.length;
+    //        if (lastlength != totallength) {
+    //            lastlength = totallength;
+    //            console.log(totallength);
+    //            Books.viewbook(totallength, $stateParams.BookId, callback1);
+    //
+    //        } else {
+    //            $scope.check = false;
+    //        }
+    //
+    //    };
 
     //    end  reload function
 
 })
 
-.controller('ViewBets', function ($scope, $stateParams, Books, $location) {
-    //    $scope.book = Books.viewbook($stateParams.BookId);
+.controller('ViewBets', function($scope, $stateParams, Books, $location) {
+    $scope.book = Books.viewbook($stateParams.BookId);
     $scope.bets = [];
     $scope.check = true;
-    $scope.bookid=$stateParams.BookId;
-    $scope.bookname=$stateParams.BookName;
+    $scope.bookid = $stateParams.BookId;
+    $scope.bookname = $stateParams.BookName;
 
-    var callback = function (tx, results) {
+    var callback = function(tx, results) {
         console.log(results);
         for (var i = 0; i < results.rows.length; i++) {
             console.log(results.rows.item(i));
@@ -111,12 +111,12 @@ angular.module('starter.controllers', ['starter.services'])
     };
     Books.viewbets(0, $stateParams.BookId, callback);
 
-    $scope.DeleteBet = function (bet) {
+    $scope.DeleteBet = function(bet) {
         console.log("bet delete pressed");
-        $scope.bookid=bet.bid;
-        Books.deletebet(bet.bid,bet.id,bet.backlay,bet.favorite,bet.odds,bet.stake);
+        $scope.bookid = bet.bid;
+        Books.deletebet(bet.bid, bet.id, bet.backlay, bet.favorite, bet.odds, bet.stake);
         $location.url("/tab/viewbook/" + $scope.bookid);
-//        Books.viewbets(0, $stateParams.BookId, callback);
+        //        Books.viewbets(0, $stateParams.BookId, callback);
         //$scope.book = Books.viewbook($stateParams.BookId);
     }
 
@@ -124,12 +124,12 @@ angular.module('starter.controllers', ['starter.services'])
 
     //    start reload function
 
-    $scope.getcheck = function () {
+    $scope.getcheck = function() {
         return $scope.check;
     }
 
     var lastlength = 0;
-    $scope.loadMore = function () {
+    $scope.loadMore = function() {
         var totallength = $scope.bets.length;
         if (lastlength != totallength) {
             lastlength = totallength;
@@ -147,7 +147,7 @@ angular.module('starter.controllers', ['starter.services'])
 
 })
 
-.controller('CreateBook', function ($location, $scope, $stateParams, Books, $state, $ionicScrollDelegate) {
+.controller('CreateBook', function($location, $scope, $stateParams, Books, $state, $ionicScrollDelegate) {
     //    $urlRouter.sync();
     $scope.namesel = "";
     $scope.horses = [{
@@ -163,7 +163,7 @@ angular.module('starter.controllers', ['starter.services'])
         name: "",
         placeholder: ""
     }];
-    $scope.AddHorse = function () {
+    $scope.AddHorse = function() {
         var newhorseid = $scope.horses.length;
         $scope.horses.push({
             id: newhorseid,
@@ -171,8 +171,8 @@ angular.module('starter.controllers', ['starter.services'])
         });
         $ionicScrollDelegate.scrollBottom(true);
     };
-    
-    $scope.CreateBookSubmit = function (book, date, horses) {
+
+    $scope.CreateBookSubmit = function(book, date, horses) {
         if (book == "" || book == " ") {
             $scope.nameplaceholder = "Please enter book name";
         } else if (horses[0].name == "") {
@@ -182,7 +182,7 @@ angular.module('starter.controllers', ['starter.services'])
             $scope.horses[0].placeholder = "Give a name to Horse 2";
         } else {
             console.log("createbook ...................................");
-            date=Date.parse(date);
+            date = Date.parse(date);
             Books.createbook(book, date, horses, false);
             //            $scope.$apply();
             //$state.reload();
@@ -193,11 +193,11 @@ angular.module('starter.controllers', ['starter.services'])
         }
     };
 })
-    .controller('DeleteBook', function ($location, $scope, $stateParams, Books) {
+    .controller('DeleteBook', function($location, $scope, $stateParams, Books) {
         //        $scope.book = Books.viewbook($stateParams.BookId);
         $scope.book = [];
 
-        var callback = function (tx, results) {
+        var callback = function(tx, results) {
             console.log("my booook");
             console.log(results.rows.item(0));
             $scope.book = results.rows.item(0);
@@ -205,22 +205,22 @@ angular.module('starter.controllers', ['starter.services'])
         };
         Books.getonebook($stateParams.BookId, callback)
 
-        $scope.ConfirmDeleteBook = function (book) {
+        $scope.ConfirmDeleteBook = function(book) {
 
             Books.deletebook(book);
             $location.url("/tab/dash/");
         }
-        $scope.CancelDeleteBook = function () {
+        $scope.CancelDeleteBook = function() {
 
             $location.url("/tab/dash/");
         }
 
 
     })
-    .controller('CreateBet', function ($location, $scope, $stateParams, Books) {
+    .controller('CreateBet', function($location, $scope, $stateParams, Books) {
 
         $scope.horse = [];
-        var callback = function (tx, results) {
+        var callback = function(tx, results) {
             console.log(results);
             for (var i = 0; i < results.rows.length; i++) {
                 console.log(results.rows.item(i));
@@ -229,12 +229,12 @@ angular.module('starter.controllers', ['starter.services'])
             console.log($scope.horse);
             $scope.$apply();
         };
-        Books.viewbook(0, $stateParams.BookId, callback);
+        Books.viewbook($stateParams.BookId, callback);
         $scope.favoritesel = $stateParams.HorseId;
         $scope.backlaysel = -1;
         $scope.oddssel = 1.0;
         $scope.stakesel = 1000;
-        $scope.CreateBetSubmit = function (book, favoritesel, backlaysel, oddssel, stakesel) {
+        $scope.CreateBetSubmit = function(book, favoritesel, backlaysel, oddssel, stakesel) {
             Books.createbet(book, favoritesel, backlaysel, oddssel, stakesel, false);
             $location.url("/tab/viewbook/" + book);
         }

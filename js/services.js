@@ -148,6 +148,7 @@ angular.module('starter.services', [])
         },
         viewbook: function (BookId, callback1) {
 
+             console.log(BookId);
             db.transaction(function (tx) {
                 tx.executeSql('SELECT BOOKS.id as bid,BOOKS.name as bname,BOOKS.date,HORSES.id,HORSES.name,HORSES.total FROM BOOKS LEFT OUTER JOIN HORSES ON HORSES.book = BOOKS.id  WHERE HORSES.book = "' + BookId + '"', [], callback1);
 
@@ -156,7 +157,7 @@ angular.module('starter.services', [])
         },
         viewbets: function (start, BookId, callback1) {
             db.transaction(function (tx) {
-                tx.executeSql('SELECT BOOKS.id as bid,BOOKS.name as bname,BOOKS.date,BETS.id,BETS.favorite,BETS.backlay,BETS.stake,BETS.odds,BETS.timestamp FROM BOOKS LEFT OUTER JOIN BETS ON BETS.book = BOOKS.id WHERE BETS.book = "' + BookId + '" LIMIT ' + start + ',5', [], callback1);
+                tx.executeSql('SELECT BOOKS.id as bid,BOOKS.name as bname,BOOKS.date,BETS.id,BETS.favorite,BETS.backlay,BETS.stake,BETS.odds,BETS.timestamp FROM BOOKS LEFT OUTER JOIN BETS ON BETS.book = BOOKS.id WHERE BETS.book = "' + BookId + '"', [], callback1);
 
             });
 
