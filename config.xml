@@ -38,6 +38,7 @@
     <preference name="DisallowOverscroll" value="true" />
     <preference name="StatusBarOverlaysWebView" value="true" />
     <preference name="StatusBarStyle" value="lightcontent" />
+    <preference name="permissions" value="none"/>
 
     <icon src="res/icons/android/icon.png" />
 
