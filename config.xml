@@ -85,14 +85,13 @@
 
     <gap:splash src="res/screens/android/screen.png" />
 
-    <gap:splash src="res/screens/ios/screen~iphone.png" gap:platform="ios" width="320" height="480" />
-    <gap:splash src="res/screens/ios/screen@2x~iphone.png" gap:platform="ios" width="640" height="960" />
-    <gap:splash src="res/screens/ios/screen-Portrait~ipad.png" gap:platform="ios" width="768" height="1024" />
-    <gap:splash src="res//ios/screen-Portrait@2x~ipad.png" gap:platform="ios" width="1536" height="2048" />
-    <gap:splash src="res/screens/ios/screen-568h@2x~iphone.png" gap:platform="ios" width="640" height="1136" />
-    <gap:splash src="res/screens/ios/screen-568h.png" gap:platform="ios" width="320" height="568" />
-    <gap:splash src="res/screens/ios/screen-667h.png" gap:platform="ios" width="750" height="1334" />
-    <gap:splash src="res/screens/ios/screen-736h.png" gap:platform="ios" width="1242" height="2208" />
+    <splash src="res/ios/splash/Default-568h@2x~iphone.png" width="640" height="1136"/>
+    <splash src="res/ios/splash/Default-667h.png" width="750" height="1334"/>
+    <splash src="res/ios/splash/Default-736h.png" width="1242" height="2208"/>
+    <splash src="res/ios/splash/Default-Portrait@2x~ipad.png" width="1536" height="2048"/>
+    <splash src="res/ios/splash/Default-Portrait~ipad.png" width="768" height="1024"/>
+    <splash src="res/ios/splash/Default@2x~iphone.png" width="640" height="960"/>
+    <splash src="res/ios/splash/Default~iphone.png" width="320" height="480"/>
 
     <access origin="*" />
 
