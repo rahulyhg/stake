@@ -12,6 +12,31 @@
   <gap:platform name="ios" />
   <gap:platform name="android" />
 
+  <preference name="phonegap-version" />
+  <preference name="orientation" value="portrait" />
+  <preference name="fullscreen" value="false" />
+  <preference name="target-device" value="universal" />
+  <preference name="webviewbounce" value="true" />
+  <preference name="prerendered-icon" value="true" />
+  <preference name="stay-in-webview" value="true" />
+  <preference name="show-splash-screen-spinner" value="true" />
+  <preference name="auto-hide-splash-screen" value="true" />
+  <preference name="EnableViewportScale" value="true" />
+  <preference name="AllowInlineMediaPlayback" value="true" />
+  <preference name="BackupWebStorage" value="cloud" />
+  <preference name="TopActivityIndicator" value="gray" />
+  <preference name="KeyboardDisplayRequiresUserAction" value="false" />
+  <preference name="HideKeyboardFormAccessoryBar" value="false" />
+  <preference name="SuppressesIncrementalRendering" value="false" />
+  <preference name="SplashScreenDelay" value="5000" />
+  <preference name="ErrorUrl" value="" />
+  <preference name="KeepRunning" value="true" />
+  <preference name="LoadUrlTimeoutValue" value="20000" />
+  <preference name="DisallowOverscroll" value="true" />
+  <preference name="StatusBarOverlaysWebView" value="true" />
+  <preference name="StatusBarBackgroundColor" value="#ffffff" />
+  <preference name="StatusBarStyle" value="lightcontent" />
+
   <icon src="res/icons/android/icon.png" />
 
   <!-- iOS 8.0+ -->
