@@ -1,8 +1,6 @@
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform, Books, $location) {
-    //console.log(Books.viewallbooks());
-
     $ionicPlatform.ready(function() {
         if (window.cordova && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -11,56 +9,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             StatusBar.overlaysWebView(true);
             StatusBar.styleLightContent();
         }
-        //
-        //        var db = Books.getdb();
-        //        db.transaction(function (tx) {
-        //            var booklength = 0;
-        //            console.log("database Loaded");
-        //            tx.executeSql('SELECT * FROM BOOKS', [], function (tx, results) {
-        //                booklength = results.rows.length;
-        //                for (var i = 0; i < booklength; i++) {
-        //                    bookrow = results.rows.item(i);
-        //                    if (bookrow.date == "undefined") {
-        //                        bookrow.date = "";
-        //                    }
-        //                    Books.createbook(bookrow.name, bookrow.date, [], bookrow.id);
-        //                    //console.log(Books.viewallbooks());
-        //                }
-        //            });
-        //            tx.executeSql('SELECT * FROM HORSES', [], function (tx, results) {
-        //                horselength = results.rows.length;
-        //                for (var i = 0; i < horselength; i++) {
-        //                    horserow = results.rows.item(i);
-        //
-        //                    Books.insertonlyhorse(horserow.book, horserow.name, horserow.id);
-        //                    console.log(Books.viewallbooks());
-        //                }
-        //
-        //            });
-        //
-        //            tx.executeSql('SELECT * FROM BETS', [], function (tx, results) {
-        //                betlength = results.rows.length;
-        //                for (var i = 0; i < betlength; i++) {
-        //                    betrow = results.rows.item(i);
-        //
-        //                    Books.createbet(betrow.book, betrow.favorite, betrow.backlay, betrow.odds, betrow.stake, betrow.id);
-        //                    console.log(Books.viewallbooks());
-        //                }
-        //
-        //            });
-        //
-        //        }, null);
-        //        $location.path("/tab/dash2/");
-
     });
 })
 
 .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
     $ionicConfigProvider.views.maxCache(0);
-    // Ionic uses AngularUI Router which uses the concept of states
-    // Learn more here: https://github.com/angular-ui/ui-router
-    // Set up the various states which the app can be in.
-    // Each state's controller can be found in controllers.js
     $stateProvider
 
     .state('tab', {
@@ -125,7 +78,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             }
         })
 
-    // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/tab/dash');
 
 })
