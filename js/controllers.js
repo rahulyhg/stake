@@ -107,7 +107,7 @@ angular.module('starter.controllers', ['starter.services'])
         }
         console.log($scope.bets);
         $scope.$apply();
-        $scope.$broadcast('scroll.infiniteScrollComplete');
+//        $scope.$broadcast('scroll.infiniteScrollComplete');
     };
     Books.viewbets(0, $stateParams.BookId, callback);
 
